@@ -50,7 +50,7 @@ pipeline {
                         git add deployment.yaml
                         git commit -m "Updated deploy yaml to build ${BUILD_NUMBER} | Jenkins Pipeline" || echo "No changes to commit"
 
-                        git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/alsamdevops/Hiring-app-argocd.git main
+                        git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/alsamdevops/hiring-app-argocd.git main
                         '''
                     }
                 }
