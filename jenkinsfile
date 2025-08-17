@@ -25,7 +25,7 @@ pipeline {
 
         stage('Checkout K8S manifest SCM') {
             steps {
-                git branch: 'main', url: 'https://github.com/alsamdevops/Hiring-app-argocd.git'
+                git branch: 'main', url: 'https://github.com/alsamdevops/hiring-argo-cicd.git'
             }
         }
 
