@@ -1,4 +1,4 @@
-FROM tomcat:8.0.20-jre8
+FROM tomcat:9.0-jdk11
 # Define environment variables for Nexus repository and the artifact to download
 ENV NEXUS_REPO_URL="http://192.168.137.9:8081/repository/hiringapp/"
 ENV ARTIFACT_PATH="in/javahome/hiring/0.1/hiring-0.1.war"
