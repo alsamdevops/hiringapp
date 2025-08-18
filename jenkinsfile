@@ -4,6 +4,9 @@ pipeline {
 
     environment {
         IMAGE_TAG = "${BUILD_NUMBER}"
+	DOCKER_IMAGE = "aslamdevops/hiring-app:${BUILD_NUMBER}"
+        GIT_REPO = "git@github.com:alsamdevops/Hiring-app-argocd.git"
+        MANIFEST_PATH = "dev/deployment.yaml"
     }
 
     stages {
@@ -36,18 +39,18 @@ pipeline {
                         sh '''
                         cd dev
                         echo "Before update:"
-                        cat deployment.yaml
+                        cat ${MANIFEST_PATH}
 
                         # Replace version/tag dynamically
-                        sed -i "s/5/${BUILD_NUMBER}/g" deployment.yaml
+                         sed -i "s|image: .*/hiring-app:.*|image: ${DOCKER_IMAGE}|g" ${MANIFEST_PATH}
 
                         echo "After update:"
-                        cat deployment.yaml
+                        cat ${MANIFEST_PATH}
 
                         git config user.email "aslamdevops@outlook.com"
                         git config user.name "Mohammed Aslam"
 
-                        git add deployment.yaml
+                        git add ${MANIFEST_PATH}
                         git commit -m "Updated deploy yaml to build ${BUILD_NUMBER} | Jenkins Pipeline" || echo "No changes to commit"
 
                         git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/alsamdevops/hiring-argo-cicd.git main
