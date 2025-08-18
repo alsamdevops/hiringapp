@@ -44,8 +44,8 @@ pipeline {
                         echo "After update:"
                         cat deployment.yaml
 
-                        git config user.email "ci-bot@jenkins.local"
-                        git config user.name "Jenkins CI"
+                        git config user.email "aslamdevops@outlook.com"
+                        git config user.name "Mohammed Aslam"
 
                         git add deployment.yaml
                         git commit -m "Updated deploy yaml to build ${BUILD_NUMBER} | Jenkins Pipeline" || echo "No changes to commit"
