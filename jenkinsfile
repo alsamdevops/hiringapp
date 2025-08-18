@@ -37,7 +37,6 @@ pipeline {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'Github_server', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                         sh '''
-                        cd dev
                         echo "Before update:"
                         cat ${MANIFEST_PATH}
 
